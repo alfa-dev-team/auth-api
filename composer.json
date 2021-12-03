@@ -1,0 +1,17 @@
+{
+    "name": "alfa-dev-team/auth-api",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "AlfaDevTeam\\AuthApi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gritsay Andriy",
+            "email": "gritsayandriy@gmail.com"
+        }
+    ],
+    "require": {}
+}
