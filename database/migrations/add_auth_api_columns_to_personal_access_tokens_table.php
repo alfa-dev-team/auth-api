@@ -13,7 +13,7 @@ class AddAuthApiColumnsToPersonalAccessTokensTable extends Migration
      */
     public function up()
     {
-        Schema::create('personal_access_tokens', function (Blueprint $table) {
+        Schema::table('personal_access_tokens', function (Blueprint $table) {
             $table->string('browser');
             $table->string('os');
             $table->ipAddress('ip');

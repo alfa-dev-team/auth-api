@@ -13,7 +13,7 @@ class AddAuthApiColumnsToPasswordResetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('password_resets', function (Blueprint $table) {
+        Schema::table('password_resets', function (Blueprint $table) {
             $table->id();
             $table->renameColumn('email', 'user_id');
             $table->renameColumn('token', 'code');
@@ -27,7 +27,7 @@ class AddAuthApiColumnsToPasswordResetsTable extends Migration
      */
     public function down()
     {
-        Schema::create('password_resets', function (Blueprint $table) {
+        Schema::table('password_resets', function (Blueprint $table) {
             $table->dropColumn('id');
             $table->renameColumn('user_id','email');
             $table->renameColumn('code', 'token');
