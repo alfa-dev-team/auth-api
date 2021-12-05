@@ -7,11 +7,34 @@
             "AlfaDevTeam\\AuthApi\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "AlfaDevTeam\\AuthApi\\Tests\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "Gritsay Andriy",
             "email": "gritsayandriy@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "php": "^8.0",
+        "alfa-dev-team/rest-api-responses": "^1.0",
+        "laravel/nexmo-notification-channel": "^2.5",
+        "nexmo/laravel": "^2.4",
+        "laravel/sanctum": "^2.12",
+        "jenssegers/agent": "^2.6",
+        "sonata-project/google-authenticator": "^2.3"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.23"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AlfaDevTeam\\AuthApi\\Providers\\ServiceProvider"
+            ]
+        }
+    }
 }
