@@ -1,7 +1,7 @@
 <?php
 
 use AlfaDevTeam\AuthApi\Controllers\Settings\TwoFactorSettingController;
-use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Route;
 
 Route::prefix('two-factor-authentication')->group(function () {
     Route::get('send-code', [TwoFactorSettingController::class, 'sendCode']);

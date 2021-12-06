@@ -4,7 +4,7 @@ use AlfaDevTeam\AuthApi\Controllers\Auth\ConfirmationController;
 use AlfaDevTeam\AuthApi\Controllers\Auth\LoginController;
 use AlfaDevTeam\AuthApi\Controllers\Auth\PasswordResetController;
 use AlfaDevTeam\AuthApi\Controllers\Auth\RegisterController;
-use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Route;
 
 Route::post('register', [RegisterController::class, 'register']);
 Route::post('login', [LoginController::class, 'login']);

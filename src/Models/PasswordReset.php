@@ -1,6 +1,6 @@
 <?php
 
-namespace AlfaDevTeam\AuthApi\Entities;
+namespace AlfaDevTeam\AuthApi\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,7 +19,7 @@ class PasswordReset extends Model
 
     public function scopeCheckCodeByUserId($query, int $userId, string $code): bool
     {
-        $validTime = config('cabinet.password_reset.valid_time');
+        $validTime = config('auth-api.password_reset.valid_time');
 
         return $query->where('code', $code)
             ->where('user_id', $userId)

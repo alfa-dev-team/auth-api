@@ -3,7 +3,7 @@
 namespace AlfaDevTeam\AuthApi\Controllers\Auth;
 
 use AlfaDevTeam\AuthApi\Controllers\ApiController;
-use AlfaDevTeam\AuthApi\Entities\PasswordReset;
+use AlfaDevTeam\AuthApi\Models\PasswordReset;
 use AlfaDevTeam\AuthApi\Notifications\PasswordResetNotification;
 use AlfaDevTeam\AuthApi\Rules\ComplexPassword;
 use Illuminate\Http\Request;

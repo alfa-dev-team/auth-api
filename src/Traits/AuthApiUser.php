@@ -1,13 +1,13 @@
 <?php
 
-namespace AlfaDevTeam\AuthApi\Entities;
+namespace AlfaDevTeam\AuthApi\Traits;
 
-use App\Components\ConfirmationAuthentication\ConfirmationAuthentication;
-use App\Models\BackupCode;
-use App\Models\TrustedDevice;
-use App\Models\User\UserConfirmation;
-use App\Models\User\UserConfirmationAttempt;
-use App\Services\Location;
+use AlfaDevTeam\AbstractapiGeo\Services\Location;
+use AlfaDevTeam\AuthApi\Components\ConfirmationAuthentication;
+use AlfaDevTeam\AuthApi\Models\BackupCode;
+use AlfaDevTeam\AuthApi\Models\TrustedDevice;
+use AlfaDevTeam\AuthApi\Models\UserConfirmation;
+use AlfaDevTeam\AuthApi\Models\UserConfirmationAttempt;
 use Illuminate\Support\Str;
 use Jenssegers\Agent\Facades\Agent;
 use Laravel\Sanctum\NewAccessToken;
@@ -26,6 +26,7 @@ trait AuthApiUser
 
     public function backupCodes()
     {
+        config('auth-api.model.blocked_user');
         return $this->hasMany(BackupCode::class);
     }
 
@@ -34,7 +35,7 @@ trait AuthApiUser
         return $this->hasMany(TrustedDevice::class);
     }
 
-    public function createToken(array $abilities = ['*'])
+    public function createToken(string $name, array $abilities = ['*'])
     {
         $ip = request()->ip();
         $location = Location::getGeoByIp($ip)->saveToDb($this->id);

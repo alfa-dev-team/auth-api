@@ -4,7 +4,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "AlfaDevTeam\\AuthApi\\": "src/"
+            "AlfaDevTeam\\AuthApi\\": "src/",
+            "AlfaDevTeam\\AuthApi\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
@@ -25,7 +26,8 @@
         "nexmo/laravel": "^2.4",
         "laravel/sanctum": "^2.12",
         "jenssegers/agent": "^2.6",
-        "sonata-project/google-authenticator": "^2.3"
+        "sonata-project/google-authenticator": "^2.3",
+        "alfa-dev-team/abstractapi-geo": "^0.1.0"
     },
     "require-dev": {
         "orchestra/testbench": "^6.23"
