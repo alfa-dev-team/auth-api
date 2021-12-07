@@ -21,7 +21,7 @@
     ],
     "require": {
         "php": "^8.0",
-        "alfa-dev-team/rest-api-responses": "^1.0",
+        "alfa-dev-team/rest-api-responses": "^1.0.x-dev",
         "laravel/nexmo-notification-channel": "^2.5",
         "nexmo/laravel": "^2.4",
         "laravel/sanctum": "^2.12",
