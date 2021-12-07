@@ -15,7 +15,7 @@ class RegisterController extends ApiController
 
     public function __construct()
     {
-        $this->trustedDeviceModel = config('');
+        $this->trustedDeviceModel = config('auth-api.models.trusted_device');
 
     }
 
