@@ -8,7 +8,7 @@ use AlfaDevTeam\RestApiResponses\Tests\ApiRequestAssertions;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
-    use ApiRequestAssertions, RefreshDatabase;
+    use ApiRequestAssertions;
 
     protected function getPackageProviders($app)
     {
