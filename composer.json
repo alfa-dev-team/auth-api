@@ -27,7 +27,7 @@
         "laravel/sanctum": "^2.12",
         "jenssegers/agent": "^2.6",
         "sonata-project/google-authenticator": "^2.3",
-        "alfa-dev-team/abstractapi-geo": "^0.1.0"
+        "alfa-dev-team/abstractapi-geo": "^0.1.x-dev"
     },
     "require-dev": {
         "orchestra/testbench": "^6.23"
