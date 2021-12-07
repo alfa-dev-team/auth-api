@@ -11,8 +11,6 @@ use function config;
 
 class RegisterController extends ApiController
 {
-    use ApiResponses;
-
     private $trustedDeviceModel;
 
     public function __construct()
