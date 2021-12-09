@@ -48,9 +48,9 @@ class AuthApiServiceProvider extends \Illuminate\Support\ServiceProvider
 
     protected function loadRoutes()
     {
-        Route::group($this->routeConfiguration('auth'), function () {
-            $this->loadRoutesFrom(__DIR__ . '/../routes/auth.php');
-        });
+//        Route::group($this->routeConfiguration('auth'), function () {
+//            $this->loadRoutesFrom(__DIR__ . '/../routes/auth.php');
+//        });
         Route::group($this->routeConfiguration('settings'), function () {
             $this->loadRoutesFrom(__DIR__ . '/../routes/settings.php');
         });
