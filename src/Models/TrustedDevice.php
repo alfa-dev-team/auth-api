@@ -2,9 +2,9 @@
 
 namespace AlfaDevTeam\AuthApi\Models;
 
+use AlfaDevTeam\AbstractapiGeo\Services\Location;
 use Illuminate\Database\Eloquent\Model;
 use Jenssegers\Agent\Facades\Agent;
-use App\Services\Location;
 
 class TrustedDevice extends Model
 {
