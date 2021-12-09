@@ -2,7 +2,9 @@
 
 namespace AlfaDevTeam\AuthApi;
 
+use AlfaDevTeam\AuthApi\Models\PersonalAccessToken;
 use Illuminate\Support\Str;
+use Laravel\Sanctum\Sanctum;
 use function config_path;
 use function database_path;
 
@@ -28,6 +30,7 @@ class AuthApiServiceProvider extends \Illuminate\Support\ServiceProvider
         ], 'configs');
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
 //        $this->publishesMigrations();
+        Sanctum::usePersonalAccessTokenModel(PersonalAccessToken::class);
         $this->loadRoutes();
     }
 
