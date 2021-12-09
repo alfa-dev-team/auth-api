@@ -35,6 +35,13 @@ class AuthApiServiceProvider extends \Illuminate\Support\ServiceProvider
         $this->loadRoutes();
     }
 
+    public function register()
+    {
+        $this->app->bind('authapi', function ($app) {
+            return new AuthApi();
+        });
+    }
+
     protected function publishesMigrations()
     {
         foreach ($this->migrations as $migration) {
@@ -61,8 +68,8 @@ class AuthApiServiceProvider extends \Illuminate\Support\ServiceProvider
     protected function routeConfiguration(string $name)
     {
         return [
-            'prefix' => config('auth-api.route_prefix.'.$name),
-            'middleware' => config('auth-api.route_middleware.'.$name),
+            'prefix' => config('auth-api.route_prefix.' . $name),
+            'middleware' => config('auth-api.route_middleware.' . $name),
         ];
     }
 

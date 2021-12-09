@@ -39,7 +39,10 @@
         "laravel": {
             "providers": [
                 "AlfaDevTeam\\AuthApi\\AuthApiServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "AuthApi": "AlfaDevTeam\\AuthApi\\Facades\\Calculator"
+            }
         }
     },
     "scripts": {
