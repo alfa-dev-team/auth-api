@@ -1,12 +1,14 @@
 <?php
 
-namespace AlfaDevTeam\AuthApi\Providers;
+namespace AlfaDevTeam\AuthApi;
 
 use Illuminate\Support\Str;
+use function config_path;
+use function database_path;
 
-class ServiceProvider extends \Illuminate\Support\ServiceProvider
+class AuthApiServiceProvider extends \Illuminate\Support\ServiceProvider
 {
-    const PATH_MIGRATIONS = __DIR__ . '/../../database/migrations/';
+    const PATH_MIGRATIONS = __DIR__ . '/../database/migrations/';
 
     protected $migrations = [
         'add_auth_api_columns_to_password_resets_table.php.stub',
@@ -22,9 +24,10 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../../config/auth-api.php' => config_path('auth-api.php'),
+            __DIR__ . '/../config/auth-api.php' => config_path('auth-api.php'),
         ], 'configs');
-        $this->publishesMigrations();
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+//        $this->publishesMigrations();
         $this->loadRoutes();
     }
 
@@ -41,8 +44,8 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
     protected function loadRoutes()
     {
-        $this->loadRoutesFrom(__DIR__.'/../../routes/auth.php');
-        $this->loadRoutesFrom(__DIR__.'/../../routes/auth.php');
+        $this->loadRoutesFrom(__DIR__.'/../routes/auth.php');
+        $this->loadRoutesFrom(__DIR__.'/../routes/settings.php');
     }
 
     private function migrationsTimestamps()

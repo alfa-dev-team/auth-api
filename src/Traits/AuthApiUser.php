@@ -35,11 +35,12 @@ trait AuthApiUser
         return $this->hasMany(TrustedDevice::class);
     }
 
-    public function createToken(string $name, array $abilities = ['*'])
+    public function createToken(string $name = null, array $abilities = ['*'])
     {
         $ip = request()->ip();
         $location = Location::getGeoByIp($ip)->saveToDb($this->id);
         $token = $this->tokens()->create([
+            'name' => Agent::platform(),
             'is_mobile' => Agent::isMobile(),
             'token' => hash('sha256', $plainTextToken = Str::random(40)),
             'abilities' => $abilities,

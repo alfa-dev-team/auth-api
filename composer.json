@@ -1,6 +1,7 @@
 {
     "name": "alfa-dev-team/auth-api",
     "type": "library",
+    "keywords": ["framework", "laravel", "auth"],
     "license": "MIT",
     "autoload": {
         "psr-4": {
@@ -27,16 +28,23 @@
         "laravel/sanctum": "^2.12",
         "jenssegers/agent": "^2.6",
         "sonata-project/google-authenticator": "^2.3",
-        "alfa-dev-team/abstractapi-geo": "^0.1.x-dev"
+        "alfa-dev-team/abstractapi-geo": "^0.1.x-dev",
+        "doctrine/dbal": "^3.2"
     },
     "require-dev": {
-        "orchestra/testbench": "^6.23"
+        "orchestra/testbench": "^6.23",
+        "phpunit/phpunit": "^9.5"
     },
     "extra": {
         "laravel": {
             "providers": [
-                "AlfaDevTeam\\AuthApi\\Providers\\ServiceProvider"
+                "AlfaDevTeam\\AuthApi\\AuthApiServiceProvider"
             ]
         }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "@php ./vendor/bin/testbench package:discover --ansi"
+        ]
     }
 }
