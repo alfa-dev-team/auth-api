@@ -4,6 +4,7 @@ namespace AlfaDevTeam\AuthApi\Controllers\Auth;
 
 use AlfaDevTeam\AuthApi\Controllers\ApiController;
 use AlfaDevTeam\AuthApi\Models\TrustedDevice;
+use AlfaDevTeam\AuthApi\Models\User;
 use AlfaDevTeam\AuthApi\Rules\ComplexPassword;
 use AlfaDevTeam\RestApiResponses\Controllers\ApiResponses;
 use Illuminate\Http\Request;
@@ -16,8 +17,8 @@ class RegisterController extends ApiController
 
     public function __construct()
     {
+        parent::__construct();
         $this->trustedDeviceModel = config('auth-api.models.trusted_device')?? TrustedDevice::class;
-        $this->userModel = config('auth-api.models.user');
     }
 
     public function register(Request $request)

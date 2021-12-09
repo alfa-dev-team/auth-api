@@ -4,6 +4,7 @@ namespace AlfaDevTeam\AuthApi\Controllers\Auth;
 
 use AlfaDevTeam\AuthApi\Components\ConfirmationAuthentication;
 use AlfaDevTeam\AuthApi\Controllers\ApiController;
+use AlfaDevTeam\AuthApi\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use function auth;
@@ -13,7 +14,7 @@ class LoginController extends ApiController
 {
     public function __construct()
     {
-        $this->userModel = config('auth-api.models.user');
+        parent::__construct();
     }
 
     public function login(Request $request)

@@ -3,6 +3,7 @@
 namespace AlfaDevTeam\AuthApi;
 
 use AlfaDevTeam\AuthApi\Models\PersonalAccessToken;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Laravel\Sanctum\Sanctum;
 use function config_path;
@@ -37,18 +38,32 @@ class AuthApiServiceProvider extends \Illuminate\Support\ServiceProvider
     protected function publishesMigrations()
     {
         foreach ($this->migrations as $migration) {
-            $newMigrationName = $this->migrationsTimestamps().'_'.Str::remove('.stub', $migration);
+            $newMigrationName = $this->migrationsTimestamps() . '_' . Str::remove('.stub', $migration);
             $this->publishes([
                 self::PATH_MIGRATIONS . $migration =>
-                    database_path('migrations/'. $newMigrationName)
-            ],'migrations');
+                    database_path('migrations/' . $newMigrationName)
+            ], 'migrations');
         }
     }
 
     protected function loadRoutes()
     {
-        $this->loadRoutesFrom(__DIR__.'/../routes/auth.php');
-        $this->loadRoutesFrom(__DIR__.'/../routes/settings.php');
+        Route::group($this->routeConfiguration('auth'), function () {
+            $this->loadRoutesFrom(__DIR__ . '/../routes/auth.php');
+        });
+        Route::group($this->routeConfiguration('settings'), function () {
+            $this->loadRoutesFrom(__DIR__ . '/../routes/settings.php');
+        });
+
+
+    }
+
+    protected function routeConfiguration(string $name)
+    {
+        return [
+            'prefix' => config('auth-api.route_prefix.'.$name),
+            'middleware' => config('auth-api.route_middleware.'.$name),
+        ];
     }
 
     private function migrationsTimestamps()

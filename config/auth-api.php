@@ -3,8 +3,16 @@
 return [
     'models' => [
         'user' => null,
-        'blocked_user' => null,
+        'password_reset' => null,
         'trusted_device' => null,
+    ],
+    'route_prefix' => [
+        'auth' => '',
+        'settings' => ''
+    ],
+    'route_middleware' => [
+        'auth' => [],
+        'settings' => []
     ],
     'account_confirmation' => [
         'max_interval_send_code' => 5,

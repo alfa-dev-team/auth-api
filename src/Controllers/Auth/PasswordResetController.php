@@ -11,6 +11,14 @@ use Illuminate\Support\Facades\Hash;
 
 class PasswordResetController extends ApiController
 {
+    protected $passwordResetModel;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->passwordResetModel = config('auth-api.models.password_reset')?? PasswordReset::class;
+    }
+
     public function sendCode(Request $request)
     {
         $fields = $request->validate([
@@ -21,7 +29,7 @@ class PasswordResetController extends ApiController
 
         $code = $this->getGeneratedCode();
 
-        PasswordReset::create([
+        $this->passwordResetModel::create([
             'user_id' => $user->id,
             'code' => $code
         ]);
@@ -44,7 +52,7 @@ class PasswordResetController extends ApiController
             $this->respondValidationException(['email' => 'validation.exists']);
         }
 
-        if (!PasswordReset::checkCodeByUserId($user->id, $fields['code'])) {
+        if (!$this->passwordResetModel::checkCodeByUserId($user->id, $fields['code'])) {
             $this->respondValidationException(['code' => 'validation.exists']);
         }
 
