@@ -6,11 +6,7 @@
     "autoload": {
         "psr-4": {
             "AlfaDevTeam\\AuthApi\\": "src/",
-            "AlfaDevTeam\\AuthApi\\Database\\Factories\\": "database/factories"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
+            "AlfaDevTeam\\AuthApi\\Database\\Factories\\": "database/factories",
             "AlfaDevTeam\\AuthApi\\Tests\\": "tests/"
         }
     },
