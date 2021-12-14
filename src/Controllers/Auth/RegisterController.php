@@ -13,7 +13,7 @@ use function config;
 
 class RegisterController extends ApiController
 {
-    private $trustedDeviceModel;
+    protected $trustedDeviceModel;
 
     public function __construct()
     {
