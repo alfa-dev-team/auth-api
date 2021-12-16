@@ -8,12 +8,18 @@ use AlfaDevTeam\AuthApi\Models\BackupCode;
 use AlfaDevTeam\AuthApi\Models\TrustedDevice;
 use AlfaDevTeam\AuthApi\Models\UserConfirmation;
 use AlfaDevTeam\AuthApi\Models\UserConfirmationAttempt;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 use Jenssegers\Agent\Facades\Agent;
 use Laravel\Sanctum\NewAccessToken;
 
 trait AuthApiUser
 {
+    public function scopeFindByEmail(Builder $query, $email):Builder
+    {
+        return $query->where('email', $email);
+    }
+
     public function confirmation()
     {
         return $this->hasOne(UserConfirmation::class);
