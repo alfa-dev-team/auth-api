@@ -2,9 +2,8 @@
 
 namespace AlfaDevTeam\AuthApi\Actions;
 
-use AlfaDevTeam\AuthApi\Models\User\UserConfirmation;
+use AlfaDevTeam\AuthApi\Models\UserConfirmation;
 use Illuminate\Support\Facades\Notification;
-use AlfaDevTeam\AuthApi\Models\User\User;
 use AlfaDevTeam\AuthApi\Notifications\ConfirmationNotification;
 
 class SendConfirmationCodeAction
@@ -21,7 +20,7 @@ class SendConfirmationCodeAction
      */
     private $receiverType;
 
-    private User $user;
+    private $user;
 
     private UserConfirmation $userConfirmation;
 
@@ -49,7 +48,7 @@ class SendConfirmationCodeAction
         return $this;
     }
 
-    public function setUser(User $user): SendConfirmationCodeAction
+    public function setUser($user): SendConfirmationCodeAction
     {
         $this->user = $user;
         return $this;
