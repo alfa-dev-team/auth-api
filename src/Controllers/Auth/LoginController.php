@@ -4,7 +4,7 @@ namespace AlfaDevTeam\AuthApi\Controllers\Auth;
 
 use AlfaDevTeam\AuthApi\Components\ConfirmationAuthentication;
 use AlfaDevTeam\AuthApi\Controllers\ApiController;
-use AlfaDevTeam\AuthApi\Models\User;
+use AlfaDevTeam\AuthApi\Models\TrustedDevice;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use function auth;
@@ -15,6 +15,7 @@ class LoginController extends ApiController
     public function __construct()
     {
         parent::__construct();
+        $this->trustedDeviceModel = config('auth-api.models.trusted_device')?? TrustedDevice::class;
     }
 
     public function login(Request $request)
