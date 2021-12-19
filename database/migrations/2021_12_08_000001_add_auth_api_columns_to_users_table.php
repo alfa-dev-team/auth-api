@@ -10,6 +10,7 @@ class AddAuthApiColumnsToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('phone')->unique()->nullable();
+            $table->renameColumn('email_verified_at', 'email_confirmed_at');
             $table->timestamp('phone_confirmed_at')->nullable();
             $table->string('country')->nullable();
             $table->string('city')->nullable();
