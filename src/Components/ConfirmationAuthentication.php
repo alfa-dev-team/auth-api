@@ -5,6 +5,7 @@ namespace AlfaDevTeam\AuthApi\Components;
 use AlfaDevTeam\AuthApi\Components\TwoFactor\EmailConfirmationAuthentication;
 use AlfaDevTeam\AuthApi\Components\TwoFactor\GoogleConfirmationAuthentication;
 use AlfaDevTeam\AuthApi\Components\TwoFactor\PhoneConfirmationAuthentication;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Hash;
 
 abstract class ConfirmationAuthentication
@@ -36,7 +37,7 @@ abstract class ConfirmationAuthentication
 
     protected function checkCode($code): bool
     {
-        return optional($this->user->confirmation)->isCorrectCode($code)?? false;
+        return optional($this->user->confirmation)->isCorrectCode($code) ?? false;
     }
 
     protected function checkBackupCodes($code): bool
@@ -59,14 +60,14 @@ abstract class ConfirmationAuthentication
     public static function getInstance($type): ConfirmationAuthentication
     {
         if ($type == self::EMAIL) {
-            return new EmailConfirmationAuthentication();
+            return App::make(EmailConfirmationAuthentication::class);
         } elseif ($type == self::PHONE) {
-            return new PhoneConfirmationAuthentication();
+            return App::make(PhoneConfirmationAuthentication::class);
         } elseif ($type == self::GOOGLE_AUTHENTICATION) {
-            return new GoogleConfirmationAuthentication();
+            return App::make(GoogleConfirmationAuthentication::class);
         } elseif ($type == self::USER_CONFIRMATION) {
-            return new UserConfirmationAuthentication();
+            return App::make(UserConfirmationAuthentication::class);
         }
-        return new TrustedDeviceConfirmationAuthentication();
+        return App::make(TrustedDeviceConfirmationAuthentication::class);
     }
 }
