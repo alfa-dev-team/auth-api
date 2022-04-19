@@ -18,13 +18,13 @@
     ],
     "require": {
         "php": "^8.0",
-        "alfa-dev-team/rest-api-responses": "^1.0.x-dev",
+        "alfa-dev-team/rest-api-responses": "^1.0",
         "laravel/nexmo-notification-channel": "^2.5",
         "nexmo/laravel": "^2.4",
         "laravel/sanctum": "^2.12",
         "jenssegers/agent": "^2.6",
         "sonata-project/google-authenticator": "^2.3",
-        "alfa-dev-team/abstractapi-geo": "^0.1.x-dev",
+        "alfa-dev-team/abstractapi-geo": "^1.0",
         "doctrine/dbal": "^3.2"
     },
     "require-dev": {
