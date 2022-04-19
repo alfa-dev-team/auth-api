@@ -4,9 +4,7 @@ namespace AlfaDevTeam\AuthApi\Controllers\Auth;
 
 use AlfaDevTeam\AuthApi\Controllers\ApiController;
 use AlfaDevTeam\AuthApi\Models\TrustedDevice;
-use AlfaDevTeam\AuthApi\Models\User;
 use AlfaDevTeam\AuthApi\Rules\ComplexPassword;
-use AlfaDevTeam\RestApiResponses\Controllers\ApiResponses;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use function config;

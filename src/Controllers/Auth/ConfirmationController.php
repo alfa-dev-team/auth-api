@@ -4,7 +4,6 @@ namespace AlfaDevTeam\AuthApi\Controllers\Auth;
 
 use AlfaDevTeam\AuthApi\Components\ConfirmationAuthentication;
 use AlfaDevTeam\AuthApi\Controllers\ApiController;
-use AlfaDevTeam\RestApiResponses\Controllers\ApiResponses;
 use Illuminate\Http\Request;
 use function auth;
 
